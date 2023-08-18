@@ -15,6 +15,10 @@ do
     cmd="$TOOLSDIR/dsqgen -DIRECTORY $TEMPLATEDIR -INPUT $TEMPLATEDIR/templates_${i}.lst -DISTRIBUTIONS $TOOLSDIR/tpcds.idx -VERBOSE Y -QUALIFY Y -SCALE $SCALE -DIALECT netezza -OUTPUT_DIR $OUTDIR"
     eval "$cmd"
 
-    cmd="mv $MV_OPTION $OUTDIR/query_0.sql $OUTDIR/query${i}.sql"
+    #cmd="mv $MV_OPTION $OUTDIR/query_0.sql $OUTDIR/query${i}.sql"
+    cmd="mv $MV_OPTION $OUTDIR/query_0.sql $OUTDIR/q${i}.py"
     eval "$cmd"
+
+    sed -i '1s/^/query = \"\"\"/' "q{$i}.py"
+    sed -i -e '$a\"\"\"' "q{$i}.py"
 done
