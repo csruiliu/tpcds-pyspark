@@ -55,6 +55,14 @@ However, there were two isseus for this command:
 1. There will be errors about substitution '_END'. To fix it, run `prepare-queries.sh` before generating queries
 2. All the generated queries go to a single file, i.e., `query_0.sql`. To fix it, run `gen-individual-queries.sh` to generate individual queries.
 
+## Running Queries
+
+The running platform is PySpark, so we need to
+
+1. Install PySpark which should match the version of installed Spark, e.g., PySpark 3.2.4 should match with Spark 3.2.4.
+
+2. Run `tpcds_perf.py` by providing query id, dataset path, result path.
+
 ---
 Reference:
 
