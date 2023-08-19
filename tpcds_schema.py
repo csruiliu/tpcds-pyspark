@@ -138,7 +138,7 @@ customer_schema = StructType([
     StructField("c_birth_country", StringType(), True),
     StructField("c_login", StringType(), True),
     StructField("c_email_address", StringType(), True),
-    StructField("c_last_review_date", StringType(), True),
+    StructField("c_last_review_date_sk", StringType(), True),
 ])
 
 customer_address_schema = StructType([
@@ -164,7 +164,7 @@ customer_demographics_schema = StructType([
     StructField("cd_education_status", StringType(), True),
     StructField("cd_purchase_estimate", IntegerType(), True),
     StructField("cd_credit_rating", StringType(), True),
-    StructField("ca_city", IntegerType(), True),
+    StructField("cd_dep_count", IntegerType(), True),
     StructField("cd_dep_employed_count", IntegerType(), True),
     StructField("cd_dep_college_count", IntegerType(), True)
 ])

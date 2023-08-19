@@ -1,10 +1,10 @@
 query = """
 select  a.ca_state state, count(*) cnt
- from customer_address a
-     ,customer c
-     ,store_sales s
-     ,date_dim d
-     ,item i
+ from customer_address a,
+      customer c,
+      store_sales s,
+      date_dim d,
+      item i
  where       a.ca_address_sk = c.c_current_addr_sk
  	and c.c_customer_sk = s.ss_customer_sk
  	and s.ss_sold_date_sk = d.d_date_sk
