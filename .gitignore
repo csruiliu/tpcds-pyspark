@@ -1,6 +1,9 @@
 # generated table files
 *.dat
 
+# generated answers
+**/answers
+
 # IDE
 **/.idea
 

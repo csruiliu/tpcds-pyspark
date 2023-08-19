@@ -17,6 +17,4 @@ select  i_item_id,
  group by i_item_id
  order by i_item_id
  limit 100;
-
-
 """

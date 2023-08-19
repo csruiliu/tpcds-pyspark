@@ -61,7 +61,33 @@ The running platform is PySpark, so we need to
 
 1. Install PySpark which should match the version of installed Spark, e.g., PySpark 3.2.4 should match with Spark 3.2.4.
 
-2. Run `tpcds_perf.py` by providing query id, dataset path, result path.
+2. Run `tpcds_perf.py` by providing query id, dataset path, result path. It should be able to run all queries.
+
+## Fixable failed queries
+
+### Intervals like this '+ 14 days' not supported ###
+
+Fix: use INTERVAL data type.
+
+```bash
+# fail
+SELECT (now() + 14 days);
+
+# success
+SELECT (now() + INTERVAL 14 day);
+```
+
+### mismatched input '"xx_xx"' expecting {<EOF>, ';'}###
+
+Fix: Change "xx_xx" to xx_xx.
+
+```bash
+# fail
+count(distinct cs_order_number) as "order count"
+
+# success
+count(distinct cs_order_number) as ordercount
+```
 
 ---
 Reference:

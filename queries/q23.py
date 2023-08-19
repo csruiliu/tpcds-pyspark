@@ -1,4 +1,4 @@
-query = """
+query = ["""
 with frequent_ss_items as 
  (select substr(i_item_desc,1,30) itemdesc,i_item_sk item_sk,d_date solddate,count(*) cnt
   from store_sales
@@ -48,7 +48,7 @@ from
          and ws_item_sk in (select item_sk from frequent_ss_items)
          and ws_bill_customer_sk in (select c_customer_sk from best_ss_customer)) 
  limit 100;
-with frequent_ss_items as
+ """, """with frequent_ss_items as
  (select substr(i_item_desc,1,30) itemdesc,i_item_sk item_sk,d_date solddate,count(*) cnt
   from store_sales
       ,date_dim
@@ -103,6 +103,4 @@ with frequent_ss_items as
        group by c_last_name,c_first_name) 
      order by c_last_name,c_first_name,sales
   limit 100;
-
-
-"""
+"""]
